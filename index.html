@@ -30,6 +30,10 @@
             border: 1px solid #8a693f;
         }
 
+        p {
+            line-height: 1.4;
+        }
+
         .wrapper {
             display: flex;
             max-width: 900px;
@@ -37,18 +41,18 @@
             padding: 20px 10px;
         }
 
-        .wrapper-info {
+        .wrapper--info {
             min-width: 200px;
             max-width: 250px;
             margin-right: 50px;
         }
 
-        .wrapper-about {
+        .wrapper--about {
             max-width: 490px;
         }
 
         .wrapper img {
-            width: 200px;
+            width: 100%;
             margin-bottom: 20px;
         }
 
@@ -57,11 +61,33 @@
             margin-left: 20px;
             display: flex;
             flex-direction: column;
-            gap: 5px;
+            gap: 8px;
+            line-height: 1.4;
         }
 
-        .wrapper-projects {
+        .sertificates__wrapper {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 10px;
+            margin: 12px 0 20px;
+        }
+
+        .sertificate__title {
+            margin-top: 12px;
+        }
+
+        .sertificate__card {
             display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+
+        .sertificate__document {
+            width: 100%;
+            aspect-ratio: 4/3;
+            overflow: hidden;
+            border-radius: 4px;
+            background-color: #fff;
         }
 
         @media screen and (max-width: 480px) {
@@ -69,9 +95,13 @@
                 flex-wrap: wrap;
             }
 
-            .wrapper-info {
+            .wrapper--info {
                 min-width: 100%;
                 margin-right: 0;
+            }
+
+            .wrapper img {
+                width: 70%;
             }
         }
     </style>
@@ -79,7 +109,7 @@
 
 <body>
     <div class="wrapper">
-        <div class="wrapper-info">
+        <div class="wrapper--info">
             <img src="me.jpg" alt="me">
             <h1>Ilya <br> Makeenko</h1>
             <hr>
@@ -87,7 +117,8 @@
             <hr>
             <p> <b>Contact info:</b> <br><br>
                 E-mail: <a href="mailto:makeenko.005@gmail.com">makeenko.005@gmail.com</a> <br>
-                Git-hub: <a href="https://www.github.com/jetie000">github.com/jetie000</a>
+                Git-hub: <a href="https://www.github.com/jetie000">github.com/jetie000</a> <br>
+                Telegram: <a href="https://t.me/jetie000">t.me/jetie000</a>
             </p>
             <hr>
             <h1> My skills</h1>
@@ -121,16 +152,16 @@
             <h1>Languages</h1>
             <p>English - <b>B1+</b> <br> Russian - <b>Native</b></p>
         </div>
-        <div class="wrapper-about">
+        <div class="wrapper--about">
             <h1>About me</h1>
             <p>
-                I am a results-driven Software Engineer with over 2.5 years of commercial experience in full-cycle web and mobile application development. 
-                Proven track record at Itransition, where I successfully migrated legacy codebases, implemented core business logic, and integrated critical third-party services, resulting in a 3x increase in Monthly Active Users.
+                I am a results-driven Software Engineer with <b>over 2.5 years</b> of commercial experience in full-cycle <b>web and mobile</b> application development.
+                Proven track record at Itransition, where I successfully migrated legacy codebases, <b>implemented core business logic</b>, and integrated critical third-party services, resulting in a <b>3x increase in Monthly Active Users</b>.
             </p>
             <p>
-                With a solid academic foundation in Information Systems and Game Design, I have expanded my expertise into a versatile Fullstack skillset. 
-                I specialize in building scalable, real-time architectures using JS/TS (Vue/React on the frontend and NestJS/Express/.NET on the backend) and managing containerized microservices. 
-                An effective team player and problem solver committed to delivering clean, maintainable code within strict deadlines.
+                With a <b>solid academic foundation</b> in Information Systems and Game Design, I have expanded my expertise into a versatile Fullstack skillset.
+                I specialize in building <b>scalable, real-time architectures</b> using JS/TS (Vue/React on the frontend and NestJS/Express/.NET on the backend) and <b>managing containerized microservices</b>.
+                An effective <b>team player and problem solver</b> committed to delivering <b>clean, maintainable code</b> within strict deadlines.
             </p>
             <hr>
             <h1>Education</h1>
@@ -167,6 +198,9 @@
                 <u>Technologies</u>: Vue, React, Ionic, Capacitor, Pinia, Redux, Vite, Typescript, Git (Bitbucket), Docker, Jest (Vitest), Webdriver, Appium.
             </p>
             <b><a href="https://www.itransition.com/portfolio/dedicated-team-for-a-music-distribution-company">Project link</a></b>
+            <hr>
+            <h1>Sertificates</h1>
+            <div id="sertificates-list"></div>
             <hr>
             <h1>Events</h>
             <h3>Syberry Hackaton ● 03.02.2024</h3>
@@ -223,6 +257,10 @@
             </p>
         </div>
     </div>
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script type="text/babel" data-type="module" src="list.js"></script>
 </body>
 
 </html>
